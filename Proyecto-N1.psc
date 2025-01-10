@@ -1,19 +1,18 @@
-Algoritmo ProyectoModulo1
-    // Declaración de variables para el cálculo
+Algoritmo ProyectoModulo-N1
+
+    // Declaración de variables
     Definir precioBase, subtotal, unidades Como Entero
-    Definir descuentoCantidad, descuentoCupon, impuesto Como Real
+    Definir descuentoCantidad, impuesto Como Real
     Definir respuestaCupon Como Caracter
     Definir costoEnvioBase, pesoUnitario Como Entero
     Definir montoFinal, subtotalConDescuento, descuentoTotal Como Real
     
-    //constantes fijas
-    precioBase <- 1000        // Precio zapatillas
-    descuentoCupon <- 0.10    
-    impuesto <- 0.12         // 12% IVA
+    // Inicialización de constantes fijas
+    precioBase <- 1000       // Precio zapatillas
+    impuesto <- 0.12        // 12% IVA
     costoEnvioBase <- 10
     pesoUnitario <- 3
-    descuentoCantidad <- 0    // Inicializar en 0 por si no hay cupón
-    descuentoPorUnidades <- 0.05  // 5% de descuento por comprar 2 o más unidades
+    descuentoCantidad <- 0   // Inicializar en 0 por si no hay cupón
     
     // Mostrar producto y precio
     Escribir "Producto: Zapatillas"
@@ -31,7 +30,7 @@ Algoritmo ProyectoModulo1
     
     // Aplicar descuento por unidades (si aplica)
     Si unidades >= 2 Entonces
-        subtotalConDescuento <- subtotal * (1 - descuentoPorUnidades)
+        subtotalConDescuento <- subtotal * 0.95  // 5% de descuento
         Escribir "Se aplicó descuento del 5% por comprar 2 o más unidades"
     Sino
         subtotalConDescuento <- subtotal
@@ -42,12 +41,10 @@ Algoritmo ProyectoModulo1
     Leer respuestaCupon
     
     Si Minusculas(respuestaCupon) = "si" Entonces
-        // Solo pedir porcentaje de descuento si tiene cupón
-        Escribir "Ingrese el porcentaje de descuento (ejemplo: para 5% ingrese 5):"
+        Escribir "Ingrese el porcentaje de descuento del cupón:"
         Leer porcentajeDescuento
         descuentoCantidad <- porcentajeDescuento / 100  // Convertir porcentaje a decimal
         subtotalConDescuento <- subtotalConDescuento * (1 - descuentoCantidad)
-        subtotalConDescuento <- subtotalConDescuento * (1 - descuentoCupon)
     FinSi
     
     Escribir "Monto después de descuentos: $", subtotalConDescuento
