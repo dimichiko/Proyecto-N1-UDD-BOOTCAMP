@@ -1,94 +1,87 @@
 # Proyecto-N1-UDD-BOOTCAMP
 # Proyecto Final Módulo 1: Sistema de Cálculo de Compras
+Sistema de Cálculo de Compras para Tienda de Zapatillas
 
-## Descripción General
-Este algoritmo, desarrollado en PSeInt, implementa un sistema de cálculo para una tienda de zapatillas. El programa calcula el precio final de una compra considerando múltiples factores como descuentos, impuestos y costos de envío.
+Un proyecto desarrollado en PSeInt que automatiza el cálculo del costo final de una compra, integrando descuentos, impuestos y costos de envío. Diseñado para ser intuitivo y funcional, este sistema facilita la experiencia de compra en una tienda de zapatillas.
 
-## Características Principales
-1. **Producto y Precio Base**
-   * Producto: Zapatillas
-   * Precio unitario: $1,000
+🛍️ Características del Sistema
 
-2. **Sistema de Descuentos**
-   * Descuento por cantidad (2 o más unidades): 5%
-   * Cupón de descuento disponible: 10%
-   * Descuento adicional configurable (si tiene cupón)
+🏷️ Producto y Precio Base
+	•	Producto: Zapatillas
+	•	Precio unitario: $1,000
 
-3. **Cargos Adicionales**
-   * IVA: 12%
-   * Costo base de envío: $10
-   * Cargo adicional por unidad: $3
+🎁 Sistema de Descuentos
+	1.	Por cantidad:
+	•	Compra de 2 o más unidades: 5% de descuento.
+	2.	Por cupón:
+	•	Descuento estándar: 10%.
+	•	Descuento adicional configurable según el cupón.
 
-## Variables del Sistema
+💸 Cargos Adicionales
+	•	IVA: 12% del subtotal.
+	•	Costo base de envío: $10.
+	•	Costo adicional por unidad extra: $3.
 
-### Variables Enteras
-* `precioBase`: Precio base de las zapatillas ($1,000)
-* `unidades`: Cantidad de zapatillas a comprar
-* `costoEnvioBase`: Costo fijo del envío ($10)
-* `pesoUnitario`: Peso por unidad (3)
+⚙️ Flujo del Programa
+	1.	Entrada de Datos
+	•	Se solicita la cantidad de zapatillas.
+	•	Se pregunta si se cuenta con un cupón de descuento.
+	2.	Aplicación de Descuentos
+	•	Descuento por cantidad si aplica.
+	•	Si hay cupón, se calcula el descuento estándar más un descuento adicional configurable.
+	3.	Cálculo de Costos
+	•	Se aplica el IVA al subtotal después de descuentos.
+	•	Se calcula el costo de envío.
+	4.	Desglose Final
+	•	Se muestra el monto final a pagar, detallando cada cálculo.
 
-### Variables Reales
-* `descuentoCupon`: 10% (0.10)
-* `impuesto`: 12% (0.12)
-* `descuentoCantidad`: Variable según input del usuario
-* `subtotal`, `subtotalConDescuento`, `montoFinal`: Para cálculos
+🧮 Ejemplo de Cálculo
 
-### Variables de Texto
-* `respuestaCupon`: Respuesta si/no para cupón
+Supuestos:
+	•	Compra de 2 zapatillas a $1,000 c/u.
+	•	Cupón de descuento aplicado.
+	•	Descuento adicional: 5%.
 
-## Flujo del Programa
+Cálculo Paso a Paso:
+	1.	Subtotal inicial: $2,000
+	2.	Descuento por cantidad (5%): -$100
+	3.	Descuento por cupón (10%): -$190
+	4.	Descuento adicional (5%): -$85.50
+	5.	IVA (12%): +$194.94
+	6.	Costo de envío: $16 ($10 base + $3 x 2 unidades).
 
-1. **Inicio y Entrada de Datos**
-   * Muestra el producto y precio base
-   * Solicita cantidad de zapatillas
+Total Final: $1,835.44
 
-2. **Proceso de Descuentos**
-   * Pregunta por cupón de descuento
-   * Si tiene cupón:
-     - Solicita porcentaje de descuento adicional
-     - Aplica descuentos correspondientes
-   * Si no tiene cupón:
-     - Mantiene precio original
+📂 Estructura de Variables
 
-3. **Cálculos Finales**
-   * Calcula el IVA
-   * Determina costos de envío
-   * Muestra el porcentaje total de descuento
-   * Presenta el monto final a pagar
+Tipo	Nombre	Descripción	Valor Inicial
+Entera	precioBase	Precio unitario de las zapatillas	$1,000
+Entera	unidades	Cantidad de zapatillas a comprar	Usuario ingresa
+Entera	costoEnvioBase	Costo fijo de envío	$10
+Entera	pesoUnitario	Peso por unidad	$3
+Real	descuentoCupon	Porcentaje de descuento por cupón	10% (0.10)
+Real	impuesto	IVA	12% (0.12)
+Real	descuentoCantidad	Porcentaje de descuento por cantidad	5% (0.05)
+Real	subtotal	Subtotal antes de descuentos	Calculado
+Real	subtotalConDescuento	Subtotal después de descuentos	Calculado
+Real	montoFinal	Monto total a pagar	Calculado
+Texto	respuestaCupon	Respuesta sobre el cupón (sí/no)	Usuario ingresa
 
-## Ejemplo de Cálculo
+💻 Cómo Ejecutar el Programa
+	1.	Abrir el archivo del proyecto en PSeInt.
+	2.	Ejecutar el programa.
+	3.	Seguir las instrucciones en pantalla:
+	•	Ingresar la cantidad de zapatillas.
+	•	Indicar si tiene un cupón de descuento.
+	•	Si aplica, ingresar el porcentaje de descuento adicional.
+	4.	Ver el desglose del cálculo y el monto final a pagar.
 
-Supongamos los siguientes valores:
-* Compra: 2 zapatillas ($1,000 c/u)
-* Con cupón de descuento
-* Descuento adicional: 5%
+🚀 Consideraciones
+	•	Los precios y costos base están predeterminados.
+	•	Los descuentos se aplican en orden secuencial para máxima precisión.
+	•	El sistema calcula el costo de envío después de aplicar todos los descuentos.
+	•	Todos los resultados se redondean a dos decimales.
 
-### Desglose del Cálculo:
-1. Subtotal inicial: $2,000
-2. Descuento por cantidad (5%): -$100
-3. Descuento de cupón (10%): -$190
-4. Descuento adicional (5%): -$85.50
-5. IVA (12%): +$194.94
-6. Costo de envío: $16 ($10 base + $3 × 2 unidades)
+📑 Notas Adicionales
 
-### Total Final: $1,835.44
-
-## Notas de Implementación
-* El sistema está optimizado para el cálculo de compras de zapatillas
-* Los descuentos se aplican de manera secuencial
-* El costo de envío se calcula al final y no afecta los descuentos
-* El programa muestra información detallada en cada paso
-
-## Cómo Utilizar el Programa
-1. Ejecutar el programa en PSeInt
-2. Seguir las instrucciones en pantalla
-3. Ingresar la cantidad de zapatillas
-4. Responder si se tiene cupón de descuento
-5. Si aplica, ingresar el porcentaje de descuento adicional
-6. Revisar el desglose final de la compra
-
-## Consideraciones
-* Los precios y costos base están predefinidos en el sistema
-* Los descuentos se aplican sobre el monto anterior
-* El sistema redondea los decimales para mayor precisión
-* Se muestra el porcentaje total de descuento aplicado
+Este proyecto es una demostración del uso de algoritmos en PSeInt para resolver problemas cotidianos. ¡Perfecto para practicar lógica y estructuras de control!
