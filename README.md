@@ -9,9 +9,13 @@ Este algoritmo, desarrollado en PSeInt, implementa un sistema de cálculo para u
    * Precio unitario: $1,000
 
 2. **Sistema de Descuentos**
-   * Descuento por cantidad (2 o más unidades): 5%
-   * Cupón de descuento disponible: 10%
-   * Descuento adicional configurable (si tiene cupón)
+   * Descuento por cantidad:
+     - 2 unidades: 5% base
+     - Por cada unidad adicional: +2%
+     - Máximo 25% de descuento
+   * Cupón de descuento:
+     - Hasta 25% máximo
+     - Si excede 25%, no se aplica descuento
 
 3. **Cargos Adicionales**
    * IVA: 12%
@@ -27,32 +31,15 @@ Este algoritmo, desarrollado en PSeInt, implementa un sistema de cálculo para u
 * `pesoUnitario`: Peso por unidad (3)
 
 ### Variables Reales
-* `descuentoCupon`: 10% (0.10)
+* `descuentoCantidad`: Variable según cantidad de unidades
 * `impuesto`: 12% (0.12)
-* `descuentoCantidad`: Variable según input del usuario
 * `subtotal`, `subtotalConDescuento`, `montoFinal`: Para cálculos
 
 ### Variables de Texto
 * `respuestaCupon`: Respuesta si/no para cupón
 
-## Ejemplo de Cálculo
-
-Supongamos los siguientes valores:
-* Compra: 2 zapatillas ($1,000 c/u)
-* Con cupón de descuento
-* Descuento adicional: 5%
-
-### Desglose del Cálculo:
-1. Subtotal inicial: $2,000
-2. Descuento por cantidad (5%): -$100
-3. Descuento de cupón (10%): -$190
-4. Descuento adicional (5%): -$85.50
-5. IVA (12%): +$194.94
-6. Costo de envío: $16 ($10 base + $3 × 2 unidades)
-
-### Total Final: $1,835.44
-
 ## Notas de Implementación
 * El sistema está optimizado para el cálculo de compras de zapatillas
 * Los descuentos se aplican de manera secuencial
 * El costo de envío se calcula al final y no afecta los descuentos
+* Los descuentos tienen límites máximos del 25%
